@@ -7,6 +7,7 @@ import Service from "./pages/Service";
 import NotFoundPage from "./pages/NotFoundPage";
 import CustomNavBar from "./components/CustomNavBar";
 import Footer from "./components/Footer";
+import Products from "./pages/Products";
 function App() {
   return (
     // BrowserRouter , Routes, Route 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" index element={<HomePage />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/products" element={<Products />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
