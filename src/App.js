@@ -6,6 +6,7 @@ import AboutUs from "./pages/AboutUs";
 import Service from "./pages/Service";
 import NotFoundPage from "./pages/NotFoundPage";
 import CustomNavBar from "./components/CustomNavBar";
+import Footer from "./components/Footer";
 function App() {
   return (
     // BrowserRouter , Routes, Route 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-
+      <Footer />
     </BRouter>
   );
 }

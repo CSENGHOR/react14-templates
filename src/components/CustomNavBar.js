@@ -14,11 +14,17 @@ function CustomNavBar() {
                     <Nav className="me-auto">
 
                         <NavLink className={"nav-link"} to="/">
-                            Home</NavLink>
+                            Home
+                        </NavLink>
                         <NavLink className={"nav-link"} to="/service">
-                            Service</NavLink>
+                            Service
+                        </NavLink>
+                        <NavLink className={"nav-link"} to="/products">
+                            Products
+                        </NavLink>
                         <NavLink className={"nav-link"} to="/aboutus">
-                            AboutUs</NavLink>
+                            AboutUs
+                        </NavLink>
 
                     </Nav>
                 </Navbar.Collapse>
