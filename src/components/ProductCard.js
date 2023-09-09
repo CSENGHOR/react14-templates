@@ -14,7 +14,7 @@ const ProductCard = ({ productData }) => {
           <img
 
             className="img-fluid  product-image"
-            src={"https://picsum.photos/200/300"}
+            src={productData.images[0]}
 
             alt="product  image "
           />
@@ -37,7 +37,7 @@ const ProductCard = ({ productData }) => {
             {productData.description}
           </p>
 
-          <h3> {productData.price} </h3>
+          <h3> ${productData.price} </h3>
         </div>
       </div>
     </>

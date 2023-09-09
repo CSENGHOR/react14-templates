@@ -22,7 +22,7 @@ const Products = () => {
           products.map(
             product => {
               return (
-                <div className="col-4">
+                <div className="col-3">
                   <ProductCard productData = {product} />
                 </div>
               )
