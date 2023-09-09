@@ -1,21 +1,21 @@
 import React from "react";
 import "../styles/productCard.css";
- 
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook, faBookOpen } from "@fortawesome/free-solid-svg-icons";
- 
- 
-const ProductCard = () => {
- 
+
+
+const ProductCard = ({ productData }) => {
+
   return (
     <>
       <div className="product-card p-0">
         <div className="image-wrapper  ">
           <img
-             
+
             className="img-fluid  product-image"
-            src={ "https://picsum.photos/200/300"}
-           
+            src={"https://picsum.photos/200/300"}
+
             alt="product  image "
           />
         </div>
@@ -23,7 +23,7 @@ const ProductCard = () => {
 
         <div className="content px-3 pt-2 position-relative pb-3">
           <FontAwesomeIcon
-            
+
             style={{ cursor: "pointer" }}
             className="read-more   p-3 m-1 rounded-circle  position-absolute  "
             icon={faBookOpen}
@@ -31,13 +31,13 @@ const ProductCard = () => {
           />
 
           <h4>
-              this is the product title 
+            {productData.title}
           </h4>
           <p  >
-             there are many variations of passages of Lorem Ipsum available, but
+            {productData.description}
           </p>
 
-          <h3>$90</h3>
+          <h3> {productData.price} </h3>
         </div>
       </div>
     </>

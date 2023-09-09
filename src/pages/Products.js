@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { GET_ALL_PRODUCTS } from '../services/productService';
-
+import ProductCard from '../components/ProductCard';
 const Products = () => {
   const [products, setProducts] = useState([])
   useEffect(() => {
@@ -16,7 +16,21 @@ const Products = () => {
     )
   }, []);
   return (
-    <div> <h1> All Products </h1></div>
+    <div className='container '>
+      <div className="row ">
+        {
+          products.map(
+            product => {
+              return (
+                <div className="col-4">
+                  <ProductCard productData = {product} />
+                </div>
+              )
+            }
+          )
+        }
+      </div>
+    </div>
   )
 }
 
