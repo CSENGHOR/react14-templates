@@ -10,8 +10,15 @@ const Products = () => {
     GET_ALL_PRODUCTS().then(
       data => {
         console.log("Data is : ", data)
-        setProducts(data)
-         setIsLoading(false)
+
+        let filteredProduct = data.
+          filter(
+            (p) => p.category.name.toLowerCase() === "plants"
+          )
+
+
+        setProducts(filteredProduct)
+        setIsLoading(false)
 
       }
     ).catch(
@@ -47,15 +54,21 @@ const Products = () => {
             ) :
             <>
               {
-                products.map(
-                  product => {
-                    return (
-                      <div className="col-3">
-                        <ProductCard productData={product} />
-                      </div>
-                    )
-                  }
-                )
+                products.length === 0 ?
+                  (
+                    <>
+                      <h1 className='text-center'> There is no Product to show </h1>
+                    </>
+                  ) :
+                  products.map(
+                    product => {
+                      return (
+                        <div className="col-3">
+                          <ProductCard productData={product} />
+                        </div>
+                      )
+                    }
+                  )
               }
             </>
         }
