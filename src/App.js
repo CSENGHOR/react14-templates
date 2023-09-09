@@ -8,6 +8,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import CustomNavBar from "./components/CustomNavBar";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
 function App() {
   return (
     // BrowserRouter , Routes, Route 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/service" element={<Service />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />

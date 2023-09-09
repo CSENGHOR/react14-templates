@@ -11,7 +11,7 @@ const Products = () => {
       data => {
         console.log("Data is : ", data)
         setProducts(data)
-        // setIsLoading(false)
+         setIsLoading(false)
 
       }
     ).catch(
