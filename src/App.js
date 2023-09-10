@@ -14,7 +14,6 @@ function App() {
   return (
     // BrowserRouter , Routes, Route 
     <BRouter>
-   
       <CustomNavBar />
       <Routes>
         <Route path="/" index element={<HomePage />} />
