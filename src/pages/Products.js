@@ -11,10 +11,12 @@ const Products = () => {
       data => {
         console.log("Data is : ", data)
 
-        let filteredProduct = data.
-          filter(
-            (p) => p.category.name.toLowerCase() === "plants"
-          )
+        let filteredProduct = data
+        
+        // .
+        //   filter(
+        //     (p) => p.category.name.toLowerCase() === "plants"
+        //   )
 
 
         setProducts(filteredProduct)

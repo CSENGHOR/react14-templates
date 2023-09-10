@@ -9,10 +9,12 @@ import CustomNavBar from "./components/CustomNavBar";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
+import ProductModal from "./components/ProductModal";
 function App() {
   return (
     // BrowserRouter , Routes, Route 
     <BRouter>
+   
       <CustomNavBar />
       <Routes>
         <Route path="/" index element={<HomePage />} />
