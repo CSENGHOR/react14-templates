@@ -19,7 +19,7 @@ const Products = () => {
         //   )
 
 
-        setProducts(filteredProduct)
+        setProducts(filteredProduct.sort((a, b) => b.id - a.id))
         setIsLoading(false)
 
       }

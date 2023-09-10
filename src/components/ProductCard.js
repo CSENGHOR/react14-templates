@@ -14,10 +14,12 @@ const ProductCard = ({ productData }) => {
       <div className="product-card p-0">
         <div className="image-wrapper  ">
           <img
-
             className="img-fluid  product-image"
             src={productData.images[0]}
-
+            onError={({currentTarget}) => {
+              currentTarget.onerror = null; // prevent infinite loop
+              currentTarget.src = "https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png"
+            }}
             alt="product  image "
           />
         </div>
