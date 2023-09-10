@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/productDetails.css";
 import { useParams } from 'react-router-dom'
 import { GET_PRODUCT_BY_ID } from '../services/productService'
+import { Placeholder } from 'react-bootstrap';
 
 const ProductDetail = () => {
     const [product, setProduct] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
     let { id } = useParams()
     const [chosenImage, setChosenImage] = useState("https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png")
 
@@ -19,7 +21,7 @@ const ProductDetail = () => {
                   setChosenImage(response.images[0])
                 }
                 setProduct(response)
-
+                setIsLoading(false)
             }
         ).catch(error => {
             console.log("ERROR GETTING PRODUCT : ", error)
@@ -79,7 +81,7 @@ const ProductDetail = () => {
         </div>
   
         <div className="text-side ms-5 order-md-2 mb-4">
-          <h2> {product?.category?.name} </h2>
+          <h2> {isLoading ? "Loading..." : product?.category?.name} </h2>
           <h1> {product?.title} </h1>
           <div className="stars d-flex gap-1 ">
             <FontAwesomeIcon icon={faStar} color="orange" />

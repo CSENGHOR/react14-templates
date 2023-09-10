@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import ProductModal from "./components/ProductModal";
+import { ProductDashboard } from "./pages/ProductDashboard";
+
 function App() {
   return (
     // BrowserRouter , Routes, Route 
@@ -20,6 +22,7 @@ function App() {
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/service" element={<Service />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/admin/products" element={<ProductDashboard />} />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

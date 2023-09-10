@@ -4,6 +4,7 @@ import "../styles/productCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import { handleLongText } from "../utils/helper";
 
 
 const ProductCard = ({ productData }) => {
@@ -37,10 +38,10 @@ const ProductCard = ({ productData }) => {
           />
 
           <h4>
-            {productData.title}
+            {handleLongText(productData.title, 14)}
           </h4>
           <p  >
-            {productData.description}
+            {handleLongText(productData.description, 60)}
           </p>
 
           <h3> ${productData.price} </h3>

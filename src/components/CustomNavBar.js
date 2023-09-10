@@ -25,6 +25,9 @@ function CustomNavBar() {
                         <NavLink className={"nav-link"} to="/aboutus">
                             AboutUs
                         </NavLink>
+                        <NavLink className={"nav-link"} to="/admin/products">
+                            Product Dashboard
+                        </NavLink>
 
                     </Nav>
                 </Navbar.Collapse>
