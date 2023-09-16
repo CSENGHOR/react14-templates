@@ -1,4 +1,5 @@
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as BRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -10,7 +11,7 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import ProductModal from "./components/ProductModal";
-import { ProductDashboard } from "./pages/ProductDashboard";
+import ProductDashboard from "./pages/ProductDashboard";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
+      <ToastContainer/>
     </BRouter>
   );
 }

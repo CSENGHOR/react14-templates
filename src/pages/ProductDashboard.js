@@ -3,9 +3,11 @@ import React, {useState, useEffect} from 'react'
 import DataTable from 'react-data-table-component'
 import { GET_ALL_PRODUCTS } from '../services/productService'
 import ProductModal from '../components/ProductModal'
+import PreviewCard from '../components/PreviewCard'
 
-
-export const ProductDashboard = () => {
+const ProductDashBoard = () => {
+    const [selectedProduct, setSelectedProduct] = useState({})
+    let refreshStatus = false
 
     const [products, setProducts] = useState([])
     const [filteredText, setFilteredText] = useState("")
@@ -21,7 +23,13 @@ export const ProductDashboard = () => {
             name: "Image ",
             selector: row => {
                 return (
-                    <img className='img-fluid ' style={{ width: "100px" }}
+                    <img className='img-fluid '
+                    onError={({ currentTarget }) => {
+                        currentTarget.onerror = null;
+                        currentTarget.src = "https://theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png"
+    
+                    }}
+                    style={{ width: "100px" }}
                         src={row.images[0]} alt=" product Image " />
                 )
             }
@@ -42,28 +50,51 @@ export const ProductDashboard = () => {
         }
     ]
 
+    const handleStateChange = (status)=>{
+        console.log("Value of Status is : ", status)
+        refreshStatus = status
+        console.log("************ Refresh Status(from Preview) : ",refreshStatus)
+    }
+     
     useEffect(() => {
-
         GET_ALL_PRODUCTS().then(
             response => {
-                setProducts(response)
+
+                let sortedProducts =
+                    response.sort((a, b) => b.id - a.id)
+
+                setProducts(sortedProducts)
+                setSelectedProduct(sortedProducts[0])
+
             }
         ).catch(error => console.log("Error is : ", error))
 
-    }, [])
+    }, [!refreshStatus])
+
+
     let filterdProducts = products.filter(product =>
         product.title.toLowerCase().includes(filteredText.toLowerCase())
     )
+
+    const handleRowClicked = (row) => {
+        setSelectedProduct(row)
+    }
+
+
+  
     return (
-        <div className='container mt-5 bg-warning'>
+        <div className='container mt-5  '>
 
             <ProductModal showProduct={showProductModal} />
             <div className="d-flex justify-content-between">
 
-                {/* <div className="productInfo bg-success">
-                    <p>Product Information Section </p>
-                </div> */}
-                <div className="data-table col-12 bg-warning">
+                <div className='col-3 mx-auto mt-5'>
+                    <PreviewCard 
+                    product={selectedProduct}
+                    onStateChange = {handleStateChange}
+                    />
+                </div>
+                <div className="data-table col-8  ">
                     <DataTable
                         className='table table-striped table-hover w-100'
                         subHeader={true}
@@ -72,6 +103,8 @@ export const ProductDashboard = () => {
                         highlightOnHover={true}
                         pagination={true}
                         columns={columns}
+                        responsive={true}
+                        paginationPerPage={5}
                         subHeaderComponent={
                             <div className='d-flex w-100  justify-content-between'>
                                 <button className='btn btn-primary'
@@ -89,7 +122,10 @@ export const ProductDashboard = () => {
                             </div>
                         }
 
-                        data={filterdProducts} />
+                        data={filterdProducts}
+                        onRowClicked={handleRowClicked}
+
+                    />
 
                 </div>
             </div>
@@ -97,3 +133,5 @@ export const ProductDashboard = () => {
         </div>
     )
 }
+
+export default ProductDashBoard

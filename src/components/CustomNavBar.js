@@ -11,7 +11,7 @@ function CustomNavBar() {
                 <Navbar.Brand href="#home">EarthDX</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="mx-auto text-center">
 
                         <NavLink className={"nav-link"} to="/">
                             Home
@@ -28,8 +28,12 @@ function CustomNavBar() {
                         <NavLink className={"nav-link"} to="/admin/products">
                             Product Dashboard
                         </NavLink>
-
                     </Nav>
+
+                    <div className="d-flex justify-content-center">
+                        <button className="btn btn-success me-3">Sign Up</button>
+                        <button className="btn btn-warning">Log in</button>
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
